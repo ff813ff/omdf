@@ -3,213 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多关键词URL生成器</title>
+    <title>关键词URL生成器</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        
-        body {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
             background: #f5f7fa;
-            color: #333;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .intro-section {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .intro-section h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .intro-section p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        .email-link {
-            font-size: 1.5rem;
-            color: #f1c40f;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: 2px solid #f1c40f;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 10px;
-            transition: all 0.3s;
-        }
-        
-        .email-link:hover {
-            background-color: #f1c40f;
-            color: #2c3e50;
-        }
-        
-        .operation-section {
-            background: white;
-            padding: 30px 20px;
-            flex: 1;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e1e8ed;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            flex: 1;
-            min-width: 120px;
-        }
-        
-        .generate-btn {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        .generate-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        .copy-btn {
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .copy-btn:hover {
-            background-color: #27ae60;
-        }
-        
-        .clear-btn {
-            background-color: #e74c3c;
-            color: white;
-        }
-        
-        .clear-btn:hover {
-            background-color: #c0392b;
-        }
-        
-        .result-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .result-container.show {
-            display: block;
-        }
-        
-        .url-display {
-            background-color: #f8f9fa;
-            border: 2px solid #e1e8ed;
-            border-radius: 6px;
-            padding: 15px;
-            word-break: break-all;
-            font-size: 16px;
-            margin-bottom: 15px;
-            position: relative;
-            padding-right: 100px;
-        }
-        
-        .copy-btn-small {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        footer {
-            text-align: center;
             padding: 20px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            background: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
-        
-        @media (max-width: 768px) {
-            .intro-section {
-                padding: 30px 15px;
-            }
-            
-            .intro-section h1 {
-                font-size: 1.8rem;
-            }
-            
-            .email-link {
-                font-size: 1.2rem;
-            }
-            
-            .button-group {
-                flex-direction: column;
-            }
-            
-            button {
-                width: 100%;
-            }
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        .title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -221,166 +53,9 @@
             <p>生成的URL可以直接用于网站搜索、API调用或其他需要传递多个关键词的场景。使用简单，方便快捷。</p>
             <p>如果有任何问题或建议，欢迎联系我：</p>
             <a href="mailto:4444@qq.com" class="email-link">4444@qq.com</a>
-        </div>
-    </section>
-    
-    <section class="operation-section">
-        <div class="container">
-            <h2>URL生成操作区</h2>
-            
-            <div class="input-group">
-                <label for="baseUrl">基础URL</label>
-                <input type="text" id="baseUrl" placeholder="例如: https://example.com/search" value="https://example.com/search">
-            </div>
-            
-            <div class="input-group">
-                <label for="paramName">参数名称</label>
-                <input type="text" id="paramName" placeholder="例如: keywords" value="keywords">
-            </div>
-            
-            <div class="input-group">
-                <label for="keywords">关键词列表 (每行一个)</label>
-                <textarea id="keywords" placeholder="请输入关键词，每行一个">苹果
-香蕉
-橙子
-芒果</textarea>
-            </div>
-            
-            <div class="button-group">
-                <button class="generate-btn" id="generateBtn">生成URL</button>
-                <button class="copy-btn" id="copyBtn">复制URL</button>
-                <button class="clear-btn" id="clearBtn">清空</button>
-            </div>
-            
-            <div class="result-container" id="resultContainer">
-                <div class="url-display">
-                    <span id="generatedUrl">生成的URL将显示在这里...</span>
-                    <button class="copy-btn-small" id="copyBtnSmall">复制</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>© 2023 多关键词URL生成器 | 静态页面，可在GitHub Pages上部署</p>
-        </div>
+        </div>    <footer>
+        <p>© 2024 关键词URL生成器 | 内部数据处理工具</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取DOM元素
-            const baseUrlInput = document.getElementById('baseUrl');
-            const paramNameInput = document.getElementById('paramName');
-            const keywordsInput = document.getElementById('keywords');
-            const generateBtn = document.getElementById('generateBtn');
-            const copyBtn = document.getElementById('copyBtn');
-            const clearBtn = document.getElementById('clearBtn');
-            const copyBtnSmall = document.getElementById('copyBtnSmall');
-            const resultContainer = document.getElementById('resultContainer');
-            const generatedUrlElement = document.getElementById('generatedUrl');
-            
-            // 生成URL函数
-            function generateUrl() {
-                const baseUrl = baseUrlInput.value.trim();
-                const paramName = paramNameInput.value.trim();
-                const keywordsText = keywordsInput.value.trim();
-                
-                // 验证输入
-                if (!baseUrl) {
-                    alert('请输入基础URL');
-                    baseUrlInput.focus();
-                    return;
-                }
-                
-                if (!paramName) {
-                    alert('请输入参数名称');
-                    paramNameInput.focus();
-                    return;
-                }
-                
-                if (!keywordsText) {
-                    alert('请输入至少一个关键词');
-                    keywordsInput.focus();
-                    return;
-                }
-                
-                // 处理关键词：分割、去空格、过滤空值
-                const keywords = keywordsText.split('\n')
-                    .map(keyword => keyword.trim())
-                    .filter(keyword => keyword.length > 0);
-                
-                if (keywords.length === 0) {
-                    alert('请输入至少一个关键词');
-                    keywordsInput.focus();
-                    return;
-                }
-                
-                // 用逗号连接关键词并编码
-                const keywordsParam = encodeURIComponent(keywords.join(','));
-                
-                // 生成完整URL
-                const separator = baseUrl.includes('?') ? '&' : '?';
-                const fullUrl = `${baseUrl}${separator}${encodeURIComponent(paramName)}=${keywordsParam}`;
-                
-                // 显示结果
-                generatedUrlElement.textContent = fullUrl;
-                resultContainer.classList.add('show');
-                
-                // 滚动到结果区域
-                resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-            
-            // 复制URL函数
-            function copyUrl() {
-                const urlToCopy = generatedUrlElement.textContent;
-                
-                // 使用现代剪贴板API
-                navigator.clipboard.writeText(urlToCopy).then(() => {
-                    // 显示成功反馈
-                    const originalText = copyBtn.textContent;
-                    const originalSmallText = copyBtnSmall.textContent;
-                    
-                    copyBtn.textContent = '已复制!';
-                    copyBtnSmall.textContent = '已复制!';
-                    copyBtn.style.backgroundColor = '#27ae60';
-                    copyBtnSmall.style.backgroundColor = '#27ae60';
-                    
-                    setTimeout(() => {
-                        copyBtn.textContent = originalText;
-                        copyBtnSmall.textContent = originalSmallText;
-                        copyBtn.style.backgroundColor = '#2ecc71';
-                        copyBtnSmall.style.backgroundColor = '#3498db';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('复制失败: ', err);
-                    alert('复制失败，请手动选择文本并复制');
-                });
-            }
-            
-            // 清空输入
-            function clearInputs() {
-                keywordsInput.value = '';
-                resultContainer.classList.remove('show');
-                keywordsInput.focus();
-            }
-            
-            // 事件监听
-            generateBtn.addEventListener('click', generateUrl);
-            copyBtn.addEventListener('click', copyUrl);
-            copyBtnSmall.addEventListener('click', copyUrl);
-            clearBtn.addEventListener('click', clearInputs);
-            
-            // 允许按Enter键在关键词输入框中换行，按Ctrl+Enter生成URL
-            keywordsInput.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.key === 'Enter') {
-                    generateUrl();
-                }
-            });
-            
-            // 初始时生成一个示例URL
-            setTimeout(generateUrl, 300);
-        });
-    </script>
 </body>
 </html>
+    
